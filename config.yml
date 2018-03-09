@@ -1,0 +1,18 @@
+---
+# Google spreadsheet configuration
+settings:
+  credentials: 'credentials-file.json'
+  scope:
+    - 'https://spreadsheets.google.com/feeds'
+spreadsheet:
+  name: 'Name of Spreadsheet'
+worksheet:
+  name: 'Name of Worksheet in Spreadsheet'
+cells:
+  title: 'Title'
+  description: 'Description'
+  filename: 'Filename'
+  keywords: 'Keyword'
+  rights: 'Rights'
+  renderStatus: 'render-status'
+  renderStatusValue: 'done'

@@ -1,0 +1,7 @@
+---
+# FTP server info
+FTP:
+  host: 'fakeservername.com'
+  user: 'fakeuser'
+  pass: 'fakeuser'
+  dir: '/fakedirectoryname'
