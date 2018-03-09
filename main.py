@@ -125,9 +125,13 @@ def get_rights_from_dict(rights, rights_dict):
     if not rights_tmp:
         return ''
 
-    key = next(x for x in rights_dict if x in rights_tmp)
+    rights_list = []
+    for x in rights_tmp:
+        if x in rights_dict:
+            rights_list.append(x)
 
-    return key
+    rights_str = ', '.join(rights_list)
+    return rights_str
 
 
 def get_done_video_metadata(done_cell, cells, header_cells, wks, rights_dict):
