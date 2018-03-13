@@ -76,7 +76,7 @@ def create_xml_file(s_name, wks_name, metadata):
     id = hashlib.md5(metadata['filename'].encode('utf-8')).hexdigest()
     assets = etree.Element('assets')
     asset = etree.SubElement(assets, 'asset',
-                             {'language': 'en-US',
+                             {'language': 'en',
                               'description': metadata['description'],
                               'title': metadata['title'],
                               'baseFileName': metadata['filename'],
@@ -92,8 +92,10 @@ def create_xml_file(s_name, wks_name, metadata):
     files = etree.SubElement(asset, 'files')
     file = etree.SubElement(files, 'file', {'fileName': metadata['filename'],
                             'uploaded': 'true'})
+
     rights = etree.SubElement(asset, 'rights')
-    right = etree.SubElement(rights, 'right', {'name': metadata['rights']})
+    for right in metadata['rights']:
+        etree.SubElement(rights, 'right', {'name': right})
 
     keywords_list = metadata['keywords'].split(',')
     keywords = etree.SubElement(asset, 'keywords')
@@ -118,9 +120,13 @@ def get_rights_from_dict(rights, rights_dict):
         rights_dict: Dictionary or key/value pairs of sports to rights
 
     Returns:
-        String of rights
+        List of rights
     """
-    rights_tmp = list(filter(None, map(str.strip, rights.value.split(','))))
+
+    if rights.value.find(',') == -1:
+        rights_tmp = list(filter(None, map(str.strip, rights.value.splitlines())))
+    else:
+        rights_tmp = list(filter(None, map(str.strip, rights.value.split(','))))
 
     if not rights_tmp:
         return ''
@@ -130,8 +136,7 @@ def get_rights_from_dict(rights, rights_dict):
         if x in rights_dict:
             rights_list.append(x)
 
-    rights_str = ', '.join(rights_list)
-    return rights_str
+    return rights_list
 
 
 def get_done_video_metadata(done_cell, cells, header_cells, wks, rights_dict):
