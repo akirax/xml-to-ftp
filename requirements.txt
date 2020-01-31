@@ -6,7 +6,7 @@ cryptography==1.7.1
 curtsies==0.2.11
 DateTime==4.1.1
 docopt==0.6.2
-feedgen==0.5.1
+feedgen==0.9.0
 google-api-python-client==1.6.1
 greenlet==0.4.11
 gspread==0.6.2
