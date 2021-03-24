@@ -28,7 +28,7 @@ python-dateutil==2.6.0
 pytz==2016.10
 PyYAML==5.1
 requests==2.20.0
-rsa==3.4.2
+rsa==4.1
 six==1.10.0
 uritemplate==3.0.0
 wcwidth==0.1.7
