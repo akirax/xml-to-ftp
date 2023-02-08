@@ -2,7 +2,7 @@ appdirs==1.4.0
 blessings==1.6
 bpython==0.16
 cffi==1.9.1
-cryptography==3.3.2
+cryptography==39.0.1
 curtsies==0.2.11
 DateTime==4.1.1
 docopt==0.6.2
