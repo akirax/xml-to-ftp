@@ -27,7 +27,7 @@ PyRSS2Gen==1.1
 python-dateutil==2.6.0
 pytz==2016.10
 PyYAML==5.4
-requests==2.20.0
+requests==2.33.0
 rsa==4.7
 six==1.10.0
 uritemplate==3.0.0
